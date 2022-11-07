@@ -30,10 +30,6 @@ python main_MSCN.py --gpu 0 --data_name cc152k_precomp --data_path data_path --v
 
 ```
 
-## License
-
-[Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
-
 ## Acknowledgements
 The code is based on [NCR](https://github.com/XLearning-SCU/2021-NeurIPS-NCR) licensed under Apache 2.0 and [MW-Net](https://github.com/xjtushujun/meta-weight-net) licensed under MIT.
 
