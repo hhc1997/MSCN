@@ -15,7 +15,7 @@ nltk.download()
 ```
 ## Introduction
 
-### Meat Process
+### Meta Process
 <img src="https://github.com/hhc1997/MSCN/blob/main/meta-process.jpg"/>
 
 ### MSCN Framework
