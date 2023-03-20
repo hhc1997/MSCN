@@ -1,4 +1,4 @@
-Code for [Noisy Correspondence Learning with Meta Similarity Correction].
+MSCN: Noisy Correspondence Learning with Meta Similarity Correction (CVPR 2023, PyTorch Code)
 
 ## Requirements
 - Python 3.7
