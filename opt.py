@@ -107,9 +107,5 @@ def get_options():
         "--output_dir", default=os.path.join("output", current_time), help="Output dir."
     )
 
-    parser.add_argument('--local_rank', default=-1, type=int, help='number of gp1us per node')
-
-    parser.add_argument("--meta_extend_path", default="", help="")
-
 
     return parser.parse_args()
