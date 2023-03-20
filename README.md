@@ -1,4 +1,4 @@
-Code for [Noisy Correspondence Learning with Meta Similarity Correction].
+MSCN: Noisy Correspondence Learning with Meta Similarity Correction (CVPR 2023, PyTorch Code)
 
 ## Requirements
 - Python 3.7
@@ -13,6 +13,15 @@ import nltk
 nltk.download()
 > d punkt
 ```
+
+## Introduction
+
+### Meta Process
+<img src="https://github.com/hhc1997/MSCN/blob/main/meta-process.jpg"/>
+
+### Meta Update
+<img src="https://github.com/hhc1997/MSCN/blob/main/meta-update.jpg"/>
+
 ## Datasets
 We follow [NCR](https://github.com/XLearning-SCU/2021-NeurIPS-NCR) to obtain image features and vocabularies. Our method needs an extra meta-data set to guide the training. For Flickr30K and MS-COCO, it can be splited from training set or validation set. For Conceptual Captions contains real noise, it can only be splited from validtion set. 
 
