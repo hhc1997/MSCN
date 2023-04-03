@@ -55,11 +55,11 @@ def splite_data(opt, noisy_trainloader,meta_dataloader,net,meta_net,captions_tra
     net.eval()
     meta_net.eval()
     meta_len = len(meta_dataloader.dataset)
-    # init BMM by meta data
     sims_meta = []
     ids_meta = []
     labels_meta = []
     with torch.no_grad():
+        # init BMM by meta data
         for i, (meta_images, meta_captions, meta_lengths, labels, ids) in enumerate(meta_dataloader):
             meta_images, meta_captions, labels, ids = meta_images.cuda(), meta_captions.cuda(), torch.tensor(labels).cuda(), torch.tensor(ids).cuda()
             meta_sims = net.get_sim_individual(meta_images, meta_captions, meta_lengths, meta_net)
