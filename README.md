@@ -40,6 +40,18 @@ python main_MSCN.py --gpu 0 --data_name cc152k_precomp --data_path data_path --v
 
 ```
 
+## Cition
+``` 
+@InProceedings{Han_2023_CVPR,
+    author    = {Han, Haochen and Miao, Kaiyao and Zheng, Qinghua and Luo, Minnan},
+    title     = {Noisy Correspondence Learning With Meta Similarity Correction},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2023},
+    pages     = {7517-7526}
+}
+```
+
 ## Acknowledgements
 The code is based on [NCR](https://github.com/XLearning-SCU/2021-NeurIPS-NCR) licensed under Apache 2.0 and [MW-Net](https://github.com/xjtushujun/meta-weight-net) licensed under MIT.
 
