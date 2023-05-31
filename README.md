@@ -24,7 +24,7 @@ Despite the success of multimodal learning in cross-modal retrieval task, the re
 <img src="https://github.com/hhc1997/MSCN/blob/main/meta-update.jpg"/>
 
 ## Datasets
-We follow [NCR](https://github.com/XLearning-SCU/2021-NeurIPS-NCR) to obtain image features and vocabularies. Our method needs an extra meta-data set to guide the training. For Flickr30K and MS-COCO, it can be splited from training set or validation set. For Conceptual Captions contains real noise, it can only be splited from validtion set. 
+We follow [NCR](https://github.com/XLearning-SCU/2021-NeurIPS-NCR) to obtain image features and vocabularies. Our method needs an extra meta-data set to guide the training. For Flickr30K and MS-COCO, it can be splited from training set or validation set. For Conceptual Captions contains real noise, it can only be splited from validtion set. We provide the processed features of meta-data in https://drive.google.com/drive/folders/1XnGr7S-rXRfDbdeIF0QmTJV8kQFHx71-?usp=share_link.
 
 ## Training and Testing
 
