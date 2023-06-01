@@ -1,7 +1,7 @@
 MSCN: Noisy Correspondence Learning with Meta Similarity Correction (CVPR 2023, PyTorch Code)
 
 ## Requirements
-- Python 3.7
+- Python 3.8
 - torch 1.7.0+cu110
 - numpy
 - scikit-learn
