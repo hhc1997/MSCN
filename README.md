@@ -5,7 +5,7 @@ MSCN: Noisy Correspondence Learning with Meta Similarity Correction (CVPR 2023, 
 - torch 1.7.0+cu110
 - numpy
 - scikit-learn
-- pomegranate [Install](https://github.com/jmschrei/pomegranate/pull/901)
+- pomegranate [Install]([https://github.com/jmschrei/pomegranate/pull/901](https://github.com/rayleizhu/pomegranate))
 - Punkt Sentence Tokenizer:
   
 ```
