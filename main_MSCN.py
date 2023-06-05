@@ -51,7 +51,7 @@ def warmup(opt, warm_trainloader,net,meta_net,optimizer,meta_optimizer):
         if iteration % opt.log_step == 0:
             progress.display(iteration)
 
-def splite_data(opt, noisy_trainloader,meta_dataloader,net,meta_net,captions_train,images_train):
+def split_data(opt, noisy_trainloader,meta_dataloader,net,meta_net,captions_train,images_train):
     net.eval()
     meta_net.eval()
     meta_len = len(meta_dataloader.dataset)
@@ -385,11 +385,11 @@ def main(opt):
     for epoch in range(opt.num_epochs):
         print('Epoch', epoch, '/', opt.num_epochs)
         print("Split dataset ...")
-        correct_trainloader_A = splite_data(opt, noisy_trainloader, meta_dataloader, net_A, meta_net_A, captions_train, images_train)
+        correct_trainloader_A = split_data(opt, noisy_trainloader, meta_dataloader, net_A, meta_net_A, captions_train, images_train)
         print("\nModel A training ...")
         train(opt, correct_trainloader_A, meta_dataloader, net_B, meta_net_B, optimizer_B, meta_optimizer_B, epoch, BCE_Loss)
         print("Split dataset ...")
-        correct_trainloader_B = splite_data(opt, noisy_trainloader, meta_dataloader, net_B, meta_net_B, captions_train, images_train)
+        correct_trainloader_B = split_data(opt, noisy_trainloader, meta_dataloader, net_B, meta_net_B, captions_train, images_train)
         print("\nModel B training ...")
         train(opt, correct_trainloader_B, meta_dataloader, net_A, meta_net_A, optimizer_A, meta_optimizer_A, epoch, BCE_Loss)
 
