@@ -24,7 +24,51 @@ Despite the success of multimodal learning in cross-modal retrieval task, the re
 <img src="https://github.com/hhc1997/MSCN/blob/main/meta-update.jpg"/>
 
 ## Datasets
-We follow [NCR](https://github.com/XLearning-SCU/2021-NeurIPS-NCR) to obtain image features and vocabularies. Our method needs an extra meta-data set to guide the training. For Flickr30K and MS-COCO, it can be splited from training set or validation set. For Conceptual Captions contains real noise, it can only be splited from validtion set. We provide the processed features of meta-data in https://drive.google.com/drive/folders/1XnGr7S-rXRfDbdeIF0QmTJV8kQFHx71-?usp=share_link.
+We follow [NCR](https://github.com/XLearning-SCU/2021-NeurIPS-NCR) to obtain image features and vocabularies. Our method needs an extra meta-data set to guide the training. 
+For the Flickr30K dataset, we randomly split the meta-data from the validation set:
+
+```
+if opt.data_name == 'f30k_precomp':
+    meta_len = 2900 # 2% of 145,000
+    total_idsx = np.arange(0, len(images_dev)) #image length = caption length
+    meta_idxs = np.random.choice(total_idsx, meta_len, False)
+    captions_meta, images_meta = list(np.array(captions_dev)[meta_idxs]), images_dev[meta_idxs]
+    #save...
+```
+
+  For the MS-COCO, the meta-data is split from the training set (6,328 pairs) and validation set (all 5,000 pairs):
+
+```
+if opt.data_name == 'coco_precomp':
+    im_div = [0, 1, 2, 3, 4]
+    sup_len = 6328 # 2%*566,435 - 5000
+    total_img_idsx = np.arange(0, len(images_train))
+    total_cap_idsx = np.arange(0, len(captions_train))
+    sup_img_idxs = np.random.choice(total_img_idsx, sup_len, False)
+    sup_0t4_idxs = np.random.choice(im_div, sup_len, True)
+    sup_cap_idxs = sup_img_idxs * 5 + sup_0t4_idxs
+    mask_img = np.ones(len(total_img_idsx), dtype=bool)
+    mask_img[sup_img_idxs,] = False
+
+    mask_cap = np.ones(len(total_cap_idsx), dtype=bool)
+    del_cap_idxs = []
+    for k in sup_img_idxs:
+        del_cap_idxs.extend(list(range(k * len(im_div), k * len(im_div) + len(im_div))))
+    del_cap_idxs = np.array(del_cap_idxs)
+    mask_cap[del_cap_idxs,] = False
+    # get meta data
+    img_meta_sup = images_train[sup_img_idxs]
+    cap_meta_sup = list(np.array(captions_train)[sup_cap_idxs])
+    images_meta = np.vstack((images_dev, img_meta_sup))
+    captions_meta = captions_dev + cap_meta_sup
+    # get new train data
+    images_train = images_train[mask_img]
+    captions_train = list(np.array(captions_train)[mask_cap])
+    #save    
+```
+
+For the CC152K, the meta-data is split from the validation set of the original Conceptual Captions. You can download the meta-data from https://drive.google.com/drive/folders/1XnGr7S-rXRfDbdeIF0QmTJV8kQFHx71-?usp=sharing.
+
 
 ## Training and Testing
 
