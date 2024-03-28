@@ -5,7 +5,7 @@ MSCN: Noisy Correspondence Learning with Meta Similarity Correction (CVPR 2023, 
 - torch 1.7.0+cu110
 - numpy
 - scikit-learn
-- pomegranate with TrueBetaDistribution (Install from https://github.com/rayleizhu/pomegranate. Note that pomegranate requires `Cython=0.29`, `NumPy`, `SciPy`, `NetworkX`, and `joblib`. Than you can run `python setup.py build` and `python setup.py install` to install it.)
+- pomegranate with TrueBetaDistribution (Install from https://github.com/rayleizhu/pomegranate. Note that pomegranate requires `Cython=0.29`, `NumPy`, `SciPy`, `NetworkX`, and `joblib`. Then you can run `python setup.py build` and `python setup.py install` to install it.)
 - Punkt Sentence Tokenizer:
   
 ```
